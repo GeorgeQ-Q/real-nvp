@@ -1,7 +1,7 @@
 #!/bin/sh
 #SBATCH -N 1 # nodes requested
 #SBATCH -n 1 # tasks requested
-#SBATCH --partition=Standard
+#SBATCH --partition=PGR-Standard
 #SBATCH --gres=gpu:2
 #SBATCH --mem=12000 # memory in Mb
 #SBATCH --time=0-16:00:00
