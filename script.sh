@@ -2,7 +2,7 @@
 #SBATCH -N 1 # nodes requested
 #SBATCH -n 1 # tasks requested
 #SBATCH --partition=PGR-Standard
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH --mem=12000 # memory in Mb
 #SBATCH --time=0-16:00:00
 
@@ -35,4 +35,4 @@ export DATASET_DIR=${TMP}/datasets/
 
 source /home/${STUDENT_ID}/miniconda3/bin/activate rnvp
 cd /home/${STUDENT_ID}/real-nvp/
-python train.py --gpu_ids=[0,1]
+python train.py
