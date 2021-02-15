@@ -30,7 +30,7 @@ def main(args):
     transform_test = transforms.Compose([
         transforms.ToTensor()
     ])
-
+    print(os.getcwd())
     trainset = torchvision.datasets.CIFAR10(root='data', train=True, download=True, transform=transform_train)
     trainloader = data.DataLoader(trainset, batch_size=args.batch_size, shuffle=True, num_workers=args.num_workers)
 
