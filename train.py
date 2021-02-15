@@ -19,6 +19,8 @@ from tqdm import tqdm
 def main(args):
     device = 'cuda' if torch.cuda.is_available() and len(args.gpu_ids) > 0 else 'cpu'
     print(device)
+    print(torch.cuda.device_count())
+    print(torch.cuda.current_device())
     start_epoch = 0
 
     # Note: No normalization applied, since RealNVP expects inputs in (0, 1).
