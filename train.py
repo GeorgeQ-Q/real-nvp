@@ -21,7 +21,7 @@ def main(args):
     print(device)
     print(torch.cuda.device_count())
     print(torch.cuda.get_device_name(torch.cuda.current_device()))
-    
+    print(torch.backends.cudnn.version())
     start_epoch = 0
 
     # Note: No normalization applied, since RealNVP expects inputs in (0, 1).
