@@ -1,0 +1,83 @@
+cuda
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to data/cifar-10-python.tar.gz
+Failed download. Trying https -> http instead. Downloading http://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to data/cifar-10-python.tar.gz
+Traceback (most recent call last):
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 1317, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 1016, in _send_output
+    self.send(msg)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 956, in send
+    self.connect()
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 1392, in connect
+    server_hostname=server_hostname)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/ssl.py", line 412, in wrap_socket
+    session=session
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/ssl.py", line 853, in _create
+    self.do_handshake()
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/ssl.py", line 1117, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torchvision/datasets/utils.py", line 41, in download_url
+    urllib.request.urlretrieve(url, fpath)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 247, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 1360, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 1319, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 104] Connection reset by peer>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 153, in <module>
+    main(parser.parse_args())
+  File "train.py", line 34, in main
+    trainset = torchvision.datasets.CIFAR10(root='data', train=True, download=True, transform=transform_train)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torchvision/datasets/cifar.py", line 58, in __init__
+    self.download()
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torchvision/datasets/cifar.py", line 151, in download
+    download_url(self.url, root, self.filename, self.tgz_md5)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torchvision/datasets/utils.py", line 47, in download_url
+    urllib.request.urlretrieve(url, fpath)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 247, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 1345, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/urllib/request.py", line 1320, in do_open
+    r = h.getresponse()
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 1321, in getresponse
+    response.begin()
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/http/client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer

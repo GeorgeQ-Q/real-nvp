@@ -1,0 +1,46 @@
+  0%|          | 0/50000 [00:00<?, ?it/s]cuda
+2
+0
+/home/s2118017/real-nvp
+Files already downloaded and verified
+Files already downloaded and verified
+Building model..
+
+Epoch: 0
+  0%|          | 0/50000 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 155, in <module>
+    main(parser.parse_args())
+  File "train.py", line 65, in main
+    train(epoch, net, trainloader, device, optimizer, loss_fn, args.max_grad_norm)
+  File "train.py", line 77, in train
+    z, sldj = net(x, reverse=False)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 150, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/s2118017/real-nvp/models/real_nvp/real_nvp.py", line 42, in forward
+    x, sldj = self.flows(x, sldj, reverse)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/s2118017/real-nvp/models/real_nvp/real_nvp.py", line 128, in forward
+    x, sldj = coupling(x, sldj, reverse)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/s2118017/real-nvp/models/real_nvp/coupling_layer.py", line 46, in forward
+    st = self.st_net(x_b)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/s2118017/real-nvp/models/resnet/resnet.py", line 43, in forward
+    x = self.in_conv(x)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/s2118017/real-nvp/util/norm_util.py", line 61, in forward
+    x = self.conv(x)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/module.py", line 493, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/home/s2118017/miniconda3/envs/rnvp/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 338, in forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED
