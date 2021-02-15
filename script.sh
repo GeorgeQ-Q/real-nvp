@@ -35,4 +35,4 @@ export DATASET_DIR=${TMP}/datasets/
 
 source /home/${STUDENT_ID}/miniconda3/bin/activate rnvp
 cd /home/${STUDENT_ID}/real-nvp/
-python train.py
+python train.py --gpu_ids=[0,1]
